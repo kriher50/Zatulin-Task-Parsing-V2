@@ -16,6 +16,7 @@
     @else
         <div class="text-center mb-6">
             @livewire('fetch-news-button')
+            @livewire('clear-news-tables')
         </div>
         <div class="text-center mb-6 max-w-md mx-auto p-5 bg-white border border-gray-200 dark:bg-gray-800 rounded-lg shadow-md">
             <h2 class="text-xl font-semibold text-title dark:text-highlight mb-4">Фильтр новостей</h2>

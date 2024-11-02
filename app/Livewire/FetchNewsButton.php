@@ -10,7 +10,7 @@ class FetchNewsButton extends Component
 {
     public string $statusMessage = 'Загрузить новости'; // Изначальное сообщение
 
-    public function fetchNews(): void
+    public function FetchNewsButton(): void
     {
         try {
         Artisan::call('news:fetch');
