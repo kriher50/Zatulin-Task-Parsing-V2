@@ -17,10 +17,6 @@ cp .env.example .env
 php artisan key:generate
 npm install
 php artisan migrate
-```
-#### Запуск проекта
-Для запуска проекта на локальном сервере выполните команду:
-```bash
 php artisan serve
 ```
 #### Запуск фронтенда
