@@ -10,3 +10,10 @@
         {{ session('message') }}
     </div>
 @endif
+<script>
+    window.addEventListener('reload-page', () => {
+        setTimeout(() => {
+            location.reload(); // Перезагрузка страницы через 2 секунды
+        }, 500);
+    });
+</script>

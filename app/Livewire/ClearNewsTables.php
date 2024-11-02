@@ -11,6 +11,7 @@ class ClearNewsTables extends Component
     {
         Artisan::call('news:clear');
         session()->flash('message', 'Таблицы lenta_news и ria_news успешно очищены!');
+        $this->dispatch('reload-page');
     }
 
     public function render()

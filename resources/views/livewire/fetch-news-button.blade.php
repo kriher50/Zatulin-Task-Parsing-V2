@@ -9,6 +9,6 @@
     window.addEventListener('reload-page', () => {
         setTimeout(() => {
             location.reload(); // Перезагрузка страницы через 2 секунды
-        }, 2000);
+        }, 1200);
     });
 </script>
