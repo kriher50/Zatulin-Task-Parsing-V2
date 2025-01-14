@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Services\NewsService;
 
-class FetchNews extends Command
+class FetchNewsCommand extends Command
 {
     protected $signature = 'news:fetch';
     protected $description = 'Fetch latest news from lenta.ru and ria.ru';
