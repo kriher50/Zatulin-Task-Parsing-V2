@@ -51,6 +51,8 @@ php artisan migrate
 
 # Установка Node.js зависимостей
 npm install
+# Для автоматического исправления Уязвимости.
+npm audit fix
 
 # Сборка фронтенд-ресурсов
 npm run build
