@@ -92,6 +92,14 @@ abstract class AbstractNewsSourceService implements NewsSourceInterface
                 }
             }
 
+            if ($newsCount === 0) {
+                $restoredCount = $this->restoreDeletedNews($maxItems);
+                if ($restoredCount > 0) {
+                    Log::info("Restored {$restoredCount} deleted news items from {$config['name']}");
+                    return true;
+                }
+            }
+
             Log::info("Successfully processed {$config['name']} news", ['count' => $newsCount]);
             return $newsCount > 0;
         } catch (\Exception $e) {
@@ -100,6 +108,17 @@ abstract class AbstractNewsSourceService implements NewsSourceInterface
             ]);
             return false;
         }
+    }
+
+    /**
+     * Восстанавливает удаленные новости
+     * 
+     * @param int $limit Максимальное количество новостей для восстановления
+     * @return int Количество восстановленных новостей
+     */
+    protected function restoreDeletedNews(int $limit): int
+    {
+        return 0; // По умолчанию не восстанавливаем новости
     }
 
     protected function processDescription(array $item): string

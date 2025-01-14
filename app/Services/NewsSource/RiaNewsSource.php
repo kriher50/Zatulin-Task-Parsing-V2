@@ -77,4 +77,33 @@ class RiaNewsSource extends AbstractNewsSourceService
 
         return null;
     }
+
+    /**
+     * Восстанавливает удаленные новости
+     * 
+     * @param int $limit Максимальное количество новостей для восстановления
+     * @return int Количество восстановленных новостей
+     */
+    protected function restoreDeletedNews(int $limit): int
+    {
+        try {
+            $deletedNews = RiaNew::onlyTrashed()
+                ->latest('deleted_at')
+                ->limit($limit)
+                ->get();
+
+            $restoredCount = 0;
+            foreach ($deletedNews as $news) {
+                $news->restore();
+                $restoredCount++;
+            }
+
+            return $restoredCount;
+        } catch (\Exception $e) {
+            Log::error("Error restoring deleted news: " . $e->getMessage(), [
+                'exception' => $e
+            ]);
+            return 0;
+        }
+    }
 } 
